@@ -1,9 +1,11 @@
-import './App.css';
+import React from 'react';
+import { GlobalStyle } from './GlobalStyle';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       App!
+      <GlobalStyle />
     </div>
   );
 }
