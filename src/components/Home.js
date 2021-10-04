@@ -9,25 +9,31 @@ import { useHomeFetch } from '../hooks/useHomeFetch'
 import HeroImage from "./HeroImage";
 import Grid from './Grid'
 import Thumb from './Thumb'
+import Spinner from './Spinner'
+import SearchBar from './SearchBar'
+import Button from './Button'
 
-const NoImage = 'https://github.com/weibenfalk/react-rmdb-v3-starter-files/blob/master/3.%20Project%20to%20start%20from%20-%20WITH%20Styles/react-rmdb-START-HERE/src/images/no_image.jpg'
+const NoImage = 'https://via.placeholder.com/350'
 
 const Home = () => {
-  const { state, loading, error } = useHomeFetch()
+  const { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore } = useHomeFetch()
 
-  console.log(state)
+  if (error) return <div>Something went wrong...</div>
 
   return (
     <>
       {
-        state.results[0] &&
+        !searchTerm && state.results[0] &&
         <HeroImage
           image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`}
           title={state.results[0].original_title}
           text={state.results[0].overview}
         />
       }
-      <Grid header='Popular movies'>
+      <SearchBar
+        setSearchTerm={setSearchTerm}
+      />
+      <Grid header={searchTerm ? 'Search results' : 'Popular movies'}>
         {state.results.map(movie => (
           <Thumb
             key={movie.id}
@@ -37,6 +43,12 @@ const Home = () => {
           />
         ))}
       </Grid>
+      {/* spinner */}
+      {loading && <Spinner />}
+      {/* button next page */}
+      {state.page < state.total_pages && !loading && (
+        <Button text='Load more' callback={() => setIsLoadingMore(true)} />
+      )}
     </>
   )
 }
