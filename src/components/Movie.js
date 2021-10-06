@@ -25,7 +25,7 @@ const Movie = () => {
       <MovieInfo movie={movie} />
       <MovieInfoBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} />
       <Grid header='Actors'>
-        {movie.actors.map(actor => (
+        {movie.actors?.map(actor => (
           <Actor
             key={actor.credit_id}
             name={actor.name}
