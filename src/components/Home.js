@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Config
-import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
+import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL, NO_IMAGE } from '../config'
 // Components
 
 // Hooks
@@ -12,8 +12,6 @@ import Thumb from './Thumb'
 import Spinner from './Spinner'
 import SearchBar from './SearchBar'
 import Button from './Button'
-
-const NoImage = 'https://via.placeholder.com/350'
 
 const Home = () => {
   const { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore } = useHomeFetch()
@@ -38,7 +36,7 @@ const Home = () => {
           <Thumb
             key={movie.id}
             clickable
-            image={movie.poster_path ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path : NoImage}
+            image={movie.poster_path ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path : NO_IMAGE}
             movieId={movie.id}
           />
         ))}
