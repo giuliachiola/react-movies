@@ -15,7 +15,7 @@ Basic movies application.
 | Purpose       | Technology |
 | :------------ | :--------- |
 | Framework     | React      |
-| Templating    | JSX        |
+| Templating    | JSX / TS   |
 | Styling       | CSS        |
 | Documentation | Markdown   |
 
@@ -38,6 +38,7 @@ npm run build
 
 ### 🌿 Branches
 
-| Branch name | Use        |
-| :---------- | :--------- |
-| `main`      | production |
+| Branch name  | Use                        |
+| :----------- | :------------------------- |
+| `main`       | movie app + login          |
+| `typescript` | movie app in TS (no login) |
