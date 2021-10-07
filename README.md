@@ -9,6 +9,7 @@ Basic movies application.
 | Project typology | 📒 Step by step from tutorial [React JS Course for Beginners 2021 Tutorial - freeCodeCamp.org](https://www.youtube.com/watch?v=nTeuhbP7wdE&ab_channel=freeCodeCamp.org) |
 
 ![project preview](docs/project-preview.png)
+![project preview 2](docs/project-preview-2.png)
 
 ## 🔥 Tech stack
 
